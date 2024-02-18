@@ -45,14 +45,8 @@ Build the application using Maven or Gradle:
 # For Maven
 mvn clean package
 
-# For Gradle
-./gradlew build
-
 # For Maven
 mvn spring-boot:run
-
-# For Gradle
-./gradlew bootRun
 
 The application will start running on http://localhost:8080
 
@@ -62,18 +56,17 @@ To run the unit tests, execute the following command:
 # For Maven
 mvn test
 
-# For Gradle
-./gradlew test
-
-## Deployment Considerations
+# Deployment Considerations
 Configure environment-specific properties in application.properties for deployment environments (e.g., production, staging).
 Use environment variables or secure configuration management systems for sensitive information such as database credentials and API keys.
 Set up continuous integration/continuous deployment (CI/CD) pipelines for automated testing and deployment.
-API Endpoints
-GET /api/wishlists: Retrieves the user's wishlist.
-POST /api/wishlists: Creates a new wishlist item.
-DELETE /api/wishlists/{id}: Removes a wishlist item by ID.
-For detailed API documentation and usage examples, refer to the Swagger UI or OpenAPI documentation (if available).
+
+# API Endpoints
+## GET /api/wishlists: Retrieves the user's wishlist.
+## POST /api/wishlists: Creates a new wishlist item.
+## DELETE /api/wishlists/{id}: Removes a wishlist item by ID.
+
+# For detailed API documentation and usage examples, refer to the Swagger UI or OpenAPI documentation (if available).
 
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests for any improvements or fixes.
