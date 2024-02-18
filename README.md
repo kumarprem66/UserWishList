@@ -9,10 +9,8 @@ This application provides backend functionality for managing wishlists of users 
   - [Database Configuration](#database-configuration)
   - [Running the Application](#running-the-application)
 - [Unit Testing](#unit-testing)
-- [Deployment Considerations](#deployment-considerations)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Setup
 
@@ -30,13 +28,13 @@ Before running the application, ensure you have the following installed:
 2. Update the `application.properties` file with your database connection details:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/wishlist_db
+spring.datasource.url=jdbc:mysql://localhost:3306/WishList
 spring.datasource.username=root
 spring.datasource.password=root_password
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
 ```
-### Running the Application
+## Running the Application
 
 Clone this repository to your local machine.
 Navigate to the project directory.
@@ -45,31 +43,25 @@ Build the application using Maven or Gradle:
 # For Maven
 mvn clean package
 
-# For Maven
+### For Maven
 mvn spring-boot:run
 
 The application will start running on http://localhost:8080
 
-### Unit Testing
+# Unit Testing
 To run the unit tests, execute the following command:
 
-# For Maven
+## For Maven
 mvn test
 
-# Deployment Considerations
-Configure environment-specific properties in application.properties for deployment environments (e.g., production, staging).
-Use environment variables or secure configuration management systems for sensitive information such as database credentials and API keys.
-Set up continuous integration/continuous deployment (CI/CD) pipelines for automated testing and deployment.
-
 # API Endpoints
-- GET /api/wishlists: Retrieves the user's wishlist.
-- POST /api/wishlists: Creates a new wishlist item.
-- DELETE /api/wishlists/{id}: Removes a wishlist item by ID.
+- POST /wish/create-customer: Create customer.
+- GET /wish/get-customer/{usernameOrEmail}: Retrieves customer details.
+- POST /wish//create-wishlist/{usernameOrEmail}: Creates a new wishlist item.
+- GET /wish/get-wishList/{usernameOrEmail}: get customer's wishlist
+- DELETE /wish/delete-wishlistItem/{usernameOrEmail}/{wishId}. deletes the wishlist item
 
-# For detailed API documentation and usage examples, refer to the Swagger UI or OpenAPI documentation (if available).
+### For detailed API documentation and usage examples, refer to the Swagger UI or OpenAPI documentation (if available).
 
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests for any improvements or fixes.
-
-## License
-This project is licensed under the MIT License.
