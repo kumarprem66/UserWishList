@@ -62,9 +62,9 @@ Use environment variables or secure configuration management systems for sensiti
 Set up continuous integration/continuous deployment (CI/CD) pipelines for automated testing and deployment.
 
 # API Endpoints
-## GET /api/wishlists: Retrieves the user's wishlist.
-## POST /api/wishlists: Creates a new wishlist item.
-## DELETE /api/wishlists/{id}: Removes a wishlist item by ID.
+- GET /api/wishlists: Retrieves the user's wishlist.
+- POST /api/wishlists: Creates a new wishlist item.
+- DELETE /api/wishlists/{id}: Removes a wishlist item by ID.
 
 # For detailed API documentation and usage examples, refer to the Swagger UI or OpenAPI documentation (if available).
 
