@@ -44,9 +44,12 @@ Build the application using Maven or Gradle:
 mvn clean package
 
 ### For Maven
+```
 mvn spring-boot:run
-
-The application will start running on http://localhost:8080
+```
+```
+The application will start running on http://localhost:8088
+```
 
 # Unit Testing
 To run the unit tests, execute the following command:
@@ -61,7 +64,10 @@ mvn test
 - GET /wish/get-wishList/{usernameOrEmail}: get customer's wishlist
 - DELETE /wish/delete-wishlistItem/{usernameOrEmail}/{wishId}. deletes the wishlist item
 
-### For detailed API documentation and usage examples, refer to the Swagger UI or OpenAPI documentation (if available).
+### For detailed API documentation and usage examples, refer to the Swagger UI or OpenAPI documentation.
+```
+http://localhost:8088/swagger-ui/index.html#/wish-controller
+```
 
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests for any improvements or fixes.
