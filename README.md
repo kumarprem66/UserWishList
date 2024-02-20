@@ -12,6 +12,14 @@ This application provides backend functionality for managing wishlists of users 
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 
+## Technologies Used
+- Java 17
+- Spring Boot 3.2.2
+- Spring Data JPA
+- Spring Security
+- MySQL
+- Mockito
+- JUnit
 ## Setup
 
 ### Prerequisites
@@ -19,26 +27,31 @@ This application provides backend functionality for managing wishlists of users 
 Before running the application, ensure you have the following installed:
 
 - Java Development Kit (JDK) 11 or later
-- Apache Maven or Gradle build tool (depending on your preference)
-- MySQL or another compatible relational database
-
-### Database Configuration
+- Apache Maven
+- MySQL
+  
+## Configuration
 
 1. Create a MySQL database for the application.
 2. Update the `application.properties` file with your database connection details:
 
 ```properties
+git clone https://github.com/kumarprem66/UserWishList.git
+Navigate to the project directory:
+cd UserWishList
+Update the application.properties file with your MySQL database configuration:
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/WishList
 spring.datasource.username=root
-spring.datasource.password=root_password
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
-```
-## Running the Application
+spring.datasource.password=premk
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.format_sql=true
+server.port=8088
 
-Clone this repository to your local machine.
-Navigate to the project directory.
-Build the application using Maven or Gradle:
+```
+
+## Running the Application
 
 # For Maven
 mvn clean package
