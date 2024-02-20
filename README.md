@@ -58,11 +58,11 @@ To run the unit tests, execute the following command:
 mvn test
 
 # API Endpoints
-- POST /wish/create-customer: Create customer.
-- GET /wish/get-customer/{usernameOrEmail}: Retrieves customer details.
-- POST /wish//create-wishlist/{usernameOrEmail}: Creates a new wishlist item.
-- GET /wish/get-wishList/{usernameOrEmail}: get customer's wishlist
-- DELETE /wish/delete-wishlistItem/{usernameOrEmail}/{wishId}. deletes the wishlist item
+- POST /api/create-customer: Create customer.
+- GET /api/get-customer/{usernameOrEmail}: Retrieves customer details.
+- POST /api/wishlists/{usernameOrEmail}: Creates a new wishlist item.
+- GET /api/wishlists/{usernameOrEmail}: get customer's wishlist
+- DELETE /api/wishlists/{usernameOrEmail}/{id}. deletes the wishlist item
 
 ### For detailed API documentation and usage examples, refer to the Swagger UI or OpenAPI documentation.
 ```
