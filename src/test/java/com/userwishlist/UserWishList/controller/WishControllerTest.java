@@ -19,12 +19,12 @@ public class WishControllerTest {
     @Test
     public void testCreateCustomer() throws Exception {
         // Valid customer object
-        String validCustomerJson = "{\"name\":\"John Doe\",\"username\":\"johndoe\",\"email\":\"john@example.com\",\"password\":\"testpass\"}";
+        String validCustomerJson = "{\"name\":\"Prem Kumar\",\"username\":\"premkumar\",\"email\":\"premkumar@example.com\",\"password\":\"testpass\"}";
         mockMvc.perform(post("/create-customer")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(validCustomerJson))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.username").value("johndoe"))
+                .andExpect(jsonPath("$.username").value("premkumar"))
                 .andExpect(jsonPath("$.email").value("john@example.com"));
 
         // Edge case: Empty customer object

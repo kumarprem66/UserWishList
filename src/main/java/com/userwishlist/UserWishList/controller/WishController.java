@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/wish")
+@RequestMapping("/api")
 @Validated
 public class WishController {
 
@@ -62,7 +62,7 @@ public class WishController {
 
 
 
-    @PostMapping("/create-wishlist/{usernameOrEmail}")
+    @PostMapping("/wishlists/{usernameOrEmail}")
     public ResponseEntity<WishListItem> createWishList(@RequestBody WishListItem wishListItem,
                                                        @PathVariable String usernameOrEmail,HttpServletRequest request){
 
@@ -77,7 +77,7 @@ public class WishController {
 
     }
 
-    @GetMapping("/get-wishList/{usernameOrEmail}")
+    @GetMapping("/wishLists/{usernameOrEmail}")
     public ResponseEntity<Set<WishListItem>> getWishList(@PathVariable String usernameOrEmail,HttpServletRequest request){
 
         String username = Common.getUserNameFromRequest(request,jwtTokenProvider);
@@ -91,14 +91,14 @@ public class WishController {
 
     }
 
-    @DeleteMapping("/delete-wishlistItem/{usernameOrEmail}/{wishId}")
-    public ResponseEntity<Response> deleteWishList(@PathVariable Integer wishId,@PathVariable String usernameOrEmail,HttpServletRequest request){
+    @DeleteMapping("/wishlists/{usernameOrEmail}/{id}")
+    public ResponseEntity<Response> deleteWishList(@PathVariable Integer id,@PathVariable String usernameOrEmail,HttpServletRequest request){
 
         String username = Common.getUserNameFromRequest(request,jwtTokenProvider);
         Customer customer = customerService.getCustomer(usernameOrEmail);
         // checking the customer identity, whether he is same in Authorization token or not
         if(customer.getEmail().equals(username) || customer.getUsername().equals(username)){
-            return new ResponseEntity<>(wIshListService.deleteWishList(wishId), HttpStatus.OK);
+            return new ResponseEntity<>(wIshListService.deleteWishList(id), HttpStatus.OK);
         }else {
             throw new AuthorizationServiceException("You cannot fetch wishList of other customer");
         }
