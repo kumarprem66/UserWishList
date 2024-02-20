@@ -77,7 +77,7 @@ public class WishController {
 
     }
 
-    @GetMapping("/wishLists/{usernameOrEmail}")
+    @GetMapping("/wishlists/{usernameOrEmail}")
     public ResponseEntity<Set<WishListItem>> getWishList(@PathVariable String usernameOrEmail,HttpServletRequest request){
 
         String username = Common.getUserNameFromRequest(request,jwtTokenProvider);
