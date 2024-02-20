@@ -8,12 +8,9 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import jakarta.websocket.OnError;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Entity
 @Data
@@ -45,7 +42,7 @@ public class Customer {
     @JsonIgnore
     private Boolean isAlive = true;
 
-
+    @JsonIgnore
     private String role;
 
 

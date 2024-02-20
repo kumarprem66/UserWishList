@@ -3,9 +3,9 @@ package com.userwishlist.UserWishList.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -20,12 +20,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain springSecurityConfiguration(HttpSecurity http) throws Exception {
 
-        http.authorizeHttpRequests(auth ->{
+        http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).
+        authorizeHttpRequests(auth ->{
 
-            auth.requestMatchers("/wish/create-wishlist/**","/wish/get-wishList/**","/wish/delete-wishlistItem/**","/wish/get-customer/**")
+            auth.requestMatchers("/api/wishlists/**","/api/get-customer/**")
                     .hasAnyRole("ADMIN","CUSTOMER")
                     .requestMatchers("/auth/signin").authenticated()
-                    .requestMatchers("/swagger-ui*/**","/v3/api-docs/**","/wish/create-customer")
+                    .requestMatchers("/swagger-ui*/**","/v3/api-docs/**","/api/create-customer")
                             .permitAll();
         })
                 .addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)

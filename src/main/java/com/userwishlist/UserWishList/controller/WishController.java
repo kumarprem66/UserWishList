@@ -39,6 +39,9 @@ public class WishController {
     @PostMapping("/create-customer")
     public ResponseEntity<Customer> createCustomer(@Valid @RequestBody Customer customer){
 
+        if(customer.getRole() == null){
+            customer.setRole("ROLE_CUSTOMER");
+        }
 
 
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
